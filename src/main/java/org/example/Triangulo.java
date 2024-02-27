@@ -13,17 +13,24 @@ public class Triangulo {
             Lado2 = teclado.nextInt();
         System.out.println("Introduce el tercer lado del triángulo:");
             Lado3 = teclado.nextFloat();
+        t = TipoTriangulo(Lado1, Lado2, Lado3, t);
+        CalculoPerimetro(Lado1, Lado2, Lado3, t);
+        teclado.close();
+    }
+    public static String TipoTriangulo(double Lado1, double Lado2, double Lado3, String t) {
         if (Lado1 <= 0 || Lado2 <= 0 || Lado3 <= 0) {
             System.out.println("Los lados de un triángulo deben ser positivos.");
         } else if (Lado1 == Lado2 && Lado2 == Lado3) {
-            t="equilátero";
+            t ="equilátero";
         } else if (Lado1 == Lado2 || Lado1 == Lado3 || Lado2 == Lado3) {
-            t="isósceles";
+            t ="isósceles";
         } else {
-            t="escaleno";
+            t ="escaleno";
         }
-        double PerimetroDelTriangulo = Lado1 + Lado2 +Lado3;
+        return t;
+    }
+    public static void CalculoPerimetro(double Lado1, double Lado2, double Lado3, String t) {
+        double PerimetroDelTriangulo = Lado1 + Lado2 + Lado3;
         System.out.println("El triángulo es "+ t + " y su perímetro es: " + PerimetroDelTriangulo);
-        teclado.close();
     }
 }
